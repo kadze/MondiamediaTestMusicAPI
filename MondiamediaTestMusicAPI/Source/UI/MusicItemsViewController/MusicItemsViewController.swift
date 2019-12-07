@@ -15,7 +15,7 @@ class MusicItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
-        // Do any additional setup after loading the view.
+        
     }
     
     //MARK: - Private
@@ -23,9 +23,9 @@ class MusicItemsViewController: UIViewController {
     private func setupSearchController() {
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search music"
-//        definesPresentationContext = true
+        definesPresentationContext = true
     }
 
 }
