@@ -60,10 +60,10 @@
 		5EC57568239C44A800C4C511 /* MondiamediaTestMusicAPI */ = {
 			isa = PBXGroup;
 			children = (
-				5EC5757D239C46F300C4C511 /* Source */,
-				5EC57572239C44A800C4C511 /* Assets.xcassets */,
-				5EC57574239C44A800C4C511 /* LaunchScreen.storyboard */,
 				5EC57577239C44A800C4C511 /* Info.plist */,
+				5EC5757D239C46F300C4C511 /* Source */,
+				5EC57590239C4A7900C4C511 /* Resources */,
+				5EC57574239C44A800C4C511 /* LaunchScreen.storyboard */,
 			);
 			path = MondiamediaTestMusicAPI;
 			sourceTree = "<group>";
@@ -143,6 +143,14 @@
 				5EC5758C239C493D00C4C511 /* Storyboarded.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5EC57590239C4A7900C4C511 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5EC57572239C44A800C4C511 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
