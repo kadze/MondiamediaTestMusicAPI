@@ -16,6 +16,12 @@
 		5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758C239C493D00C4C511 /* Storyboarded.swift */; };
 		5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */; };
 		5EC57592239C4E3900C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */; };
+		5EC57594239C555C00C4C511 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57593239C555C00C4C511 /* Network.swift */; };
+		5EC57596239C583C00C4C511 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57595239C583C00C4C511 /* Model.swift */; };
+		5EC57598239C58E700C4C511 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57597239C58E700C4C511 /* Request.swift */; };
+		5EC5759A239C5B8E00C4C511 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57599239C5B8E00C4C511 /* PostRequest.swift */; };
+		5EC5759C239C5C1900C4C511 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */; };
+		5EC5759E239C64E600C4C511 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759D239C64E600C4C511 /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		5EC5758C239C493D00C4C511 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboarded.swift"; sourceTree = "<group>"; };
 		5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicItemsViewController+UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
+		5EC57593239C555C00C4C511 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5EC57595239C583C00C4C511 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5EC57597239C58E700C4C511 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		5EC57599239C5B8E00C4C511 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		5EC5759D239C64E600C4C511 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,12 @@
 		5EC57580239C471D00C4C511 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5EC57593239C555C00C4C511 /* Network.swift */,
+				5EC57595239C583C00C4C511 /* Model.swift */,
+				5EC57597239C58E700C4C511 /* Request.swift */,
+				5EC57599239C5B8E00C4C511 /* PostRequest.swift */,
+				5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */,
+				5EC5759D239C64E600C4C511 /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -229,10 +247,16 @@
 			files = (
 				5EC5756A239C44A800C4C511 /* AppDelegate.swift in Sources */,
 				5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */,
+				5EC5759C239C5C1900C4C511 /* NetworkConstants.swift in Sources */,
 				5EC57592239C4E3900C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift in Sources */,
 				5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */,
 				5EC5756C239C44A800C4C511 /* SceneDelegate.swift in Sources */,
+				5EC57594239C555C00C4C511 /* Network.swift in Sources */,
 				5EC57584239C476100C4C511 /* MusicItemsViewController.swift in Sources */,
+				5EC5759E239C64E600C4C511 /* HTTPMethod.swift in Sources */,
+				5EC5759A239C5B8E00C4C511 /* PostRequest.swift in Sources */,
+				5EC57598239C58E700C4C511 /* Request.swift in Sources */,
+				5EC57596239C583C00C4C511 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
