@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		5EC5756A239C44A800C4C511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57569239C44A800C4C511 /* AppDelegate.swift */; };
 		5EC5756C239C44A800C4C511 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5756B239C44A800C4C511 /* SceneDelegate.swift */; };
-		5EC5756E239C44A800C4C511 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5756D239C44A800C4C511 /* ViewController.swift */; };
 		5EC57573239C44A800C4C511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EC57572239C44A800C4C511 /* Assets.xcassets */; };
 		5EC57576239C44A800C4C511 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC57574239C44A800C4C511 /* LaunchScreen.storyboard */; };
+		5EC57584239C476100C4C511 /* MusicItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57583239C476100C4C511 /* MusicItemsViewController.swift */; };
+		5EC57587239C480700C4C511 /* MusicItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */; };
+		5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758C239C493D00C4C511 /* Storyboarded.swift */; };
+		5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5EC57566239C44A800C4C511 /* MondiamediaTestMusicAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MondiamediaTestMusicAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC57569239C44A800C4C511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EC5756B239C44A800C4C511 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5EC5756D239C44A800C4C511 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5EC57572239C44A800C4C511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EC57575239C44A800C4C511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EC57577239C44A800C4C511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EC57583239C476100C4C511 /* MusicItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemsViewController.swift; sourceTree = "<group>"; };
+		5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicItemsViewController.storyboard; sourceTree = "<group>"; };
+		5EC5758C239C493D00C4C511 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboarded.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,89 @@
 		5EC57568239C44A800C4C511 /* MondiamediaTestMusicAPI */ = {
 			isa = PBXGroup;
 			children = (
-				5EC57569239C44A800C4C511 /* AppDelegate.swift */,
-				5EC5756B239C44A800C4C511 /* SceneDelegate.swift */,
-				5EC5756D239C44A800C4C511 /* ViewController.swift */,
+				5EC5757D239C46F300C4C511 /* Source */,
 				5EC57572239C44A800C4C511 /* Assets.xcassets */,
 				5EC57574239C44A800C4C511 /* LaunchScreen.storyboard */,
 				5EC57577239C44A800C4C511 /* Info.plist */,
 			);
 			path = MondiamediaTestMusicAPI;
+			sourceTree = "<group>";
+		};
+		5EC5757D239C46F300C4C511 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5EC57569239C44A800C4C511 /* AppDelegate.swift */,
+				5EC5756B239C44A800C4C511 /* SceneDelegate.swift */,
+				5EC5757E239C470900C4C511 /* UI */,
+				5EC5757F239C471600C4C511 /* Models */,
+				5EC57581239C472400C4C511 /* Enums */,
+				5EC57582239C473800C4C511 /* Library */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5EC5757E239C470900C4C511 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5EC57585239C476500C4C511 /* MusicItemsViewController */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5EC5757F239C471600C4C511 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5EC57580239C471D00C4C511 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5EC57581239C472400C4C511 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		5EC57582239C473800C4C511 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				5EC57589239C48BD00C4C511 /* Protocols */,
+				5EC57588239C488B00C4C511 /* Extensions */,
+				5EC57580239C471D00C4C511 /* Network */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		5EC57585239C476500C4C511 /* MusicItemsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5EC57583239C476100C4C511 /* MusicItemsViewController.swift */,
+				5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */,
+			);
+			path = MusicItemsViewController;
+			sourceTree = "<group>";
+		};
+		5EC57588239C488B00C4C511 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5EC57589239C48BD00C4C511 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5EC5758C239C493D00C4C511 /* Storyboarded.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +205,7 @@
 			files = (
 				5EC57576239C44A800C4C511 /* LaunchScreen.storyboard in Resources */,
 				5EC57573239C44A800C4C511 /* Assets.xcassets in Resources */,
+				5EC57587239C480700C4C511 /* MusicItemsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,9 +216,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EC5756E239C44A800C4C511 /* ViewController.swift in Sources */,
 				5EC5756A239C44A800C4C511 /* AppDelegate.swift in Sources */,
+				5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */,
+				5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */,
 				5EC5756C239C44A800C4C511 /* SceneDelegate.swift in Sources */,
+				5EC57584239C476100C4C511 /* MusicItemsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
