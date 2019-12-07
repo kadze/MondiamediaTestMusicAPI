@@ -22,6 +22,7 @@
 		5EC5759A239C5B8E00C4C511 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57599239C5B8E00C4C511 /* PostRequest.swift */; };
 		5EC5759C239C5C1900C4C511 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */; };
 		5EC5759E239C64E600C4C511 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759D239C64E600C4C511 /* HTTPMethod.swift */; };
+		5ECEA044239C6E7400C85C97 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEA043239C6E7400C85C97 /* TableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5EC57599239C5B8E00C4C511 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 		5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		5EC5759D239C64E600C4C511 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		5ECEA043239C6E7400C85C97 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		5EC57582239C473800C4C511 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				5ECEA043239C6E7400C85C97 /* TableDataSource.swift */,
 				5EC57589239C48BD00C4C511 /* Protocols */,
 				5EC57588239C488B00C4C511 /* Extensions */,
 				5EC57580239C471D00C4C511 /* Network */,
@@ -256,6 +259,7 @@
 				5EC5759E239C64E600C4C511 /* HTTPMethod.swift in Sources */,
 				5EC5759A239C5B8E00C4C511 /* PostRequest.swift in Sources */,
 				5EC57598239C58E700C4C511 /* Request.swift in Sources */,
+				5ECEA044239C6E7400C85C97 /* TableDataSource.swift in Sources */,
 				5EC57596239C583C00C4C511 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
