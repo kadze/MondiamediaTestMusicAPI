@@ -15,6 +15,7 @@
 		5EC57587239C480700C4C511 /* MusicItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */; };
 		5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758C239C493D00C4C511 /* Storyboarded.swift */; };
 		5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */; };
+		5EC57592239C4E3900C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicItemsViewController.storyboard; sourceTree = "<group>"; };
 		5EC5758C239C493D00C4C511 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		5EC5758E239C494800C4C511 /* UIViewController+Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboarded.swift"; sourceTree = "<group>"; };
+		5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicItemsViewController+UISearchResultsUpdating.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				5EC57583239C476100C4C511 /* MusicItemsViewController.swift */,
 				5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */,
+				5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */,
 			);
 			path = MusicItemsViewController;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				5EC5756A239C44A800C4C511 /* AppDelegate.swift in Sources */,
 				5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */,
+				5EC57592239C4E3900C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift in Sources */,
 				5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */,
 				5EC5756C239C44A800C4C511 /* SceneDelegate.swift in Sources */,
 				5EC57584239C476100C4C511 /* MusicItemsViewController.swift in Sources */,
