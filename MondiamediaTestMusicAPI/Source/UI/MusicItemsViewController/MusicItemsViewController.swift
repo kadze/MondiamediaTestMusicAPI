@@ -30,9 +30,10 @@ class MusicItemsViewController: UIViewController {
         setupTableView()
         
         MusicItem.itemsFromAPI(with: nil)
-        items = [MusicItem(title: "1", artist: "11", type: .song, image: #imageLiteral(resourceName: "Logo")),
-        MusicItem(title: "2", artist: "22", type: .album, image: #imageLiteral(resourceName: "Logo"))]
-        updateTableView()
+        MusicItem.itemsFromAPI { [weak self] (items) in
+            self?.items = items
+            self?.updateTableView()
+        }
     }
     
     //MARK: - Private

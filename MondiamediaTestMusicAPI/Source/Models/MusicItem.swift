@@ -28,20 +28,21 @@ extension MusicItem: Model {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try container.decode(String.self, forKey: .title)
         self.type = try container.decode(MusicItemType.self, forKey: .type)
-        artist = "default artist"
+        
+        let artist = try container.nestedContainer(keyedBy: ArtistKeys.self, forKey: .artist)
+        let artistName = try artist.decode(String.self, forKey: .name)
+        self.artist = artistName
         image = #imageLiteral(resourceName: "Logo")
-    }
-    
-    struct MainArtist {
-        let id: String
-        let name: String
     }
     
     enum CodingKeys: String, CodingKey {
         case title
-//        case artist
+        case artist = "mainArtist"
         case type
-//        case mainArtist
+    }
+    
+    enum ArtistKeys: String, CodingKey {
+        case name
     }
 }
 
@@ -49,7 +50,7 @@ extension MusicItem: Model {
 
 extension MusicItem {
     
-    static func itemsFromAPI(with completion:((AccessToken) -> ())?) {
+    static func itemsFromAPI(with completion:(([MusicItem]) -> ())?) {
         let requestHeaders = ["Content-Type" : "application/x-www-form-urlencoded",
                               "Accept" : "application/json",
                               "X-MM-GATEWAY-KEY" : "Ge6c853cf-5593-a196-efdb-e3fd7b881eca"]
@@ -66,8 +67,12 @@ extension MusicItem {
                     case .success(let data):
                         print("data")
                         do {
+                            //dispath here !!
                             let itemsArray = try JSONDecoder().decode([MusicItem].self, from: data)
                             print(itemsArray)
+                            if let completion = completion {
+                                completion(itemsArray)
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }
