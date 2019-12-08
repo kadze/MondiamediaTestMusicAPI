@@ -93,7 +93,7 @@ extension MusicItem: Model {
 
 extension MusicItem {
     
-    static func itemsFromAPI(with completion:(([MusicItem]) -> ())?) {
+    static func itemsFromAPI(with filter: String, completion:(([MusicItem]) -> ())?) {
         let requestHeaders = ["Content-Type" : "application/x-www-form-urlencoded",
                               "Accept" : "application/json",
                               "X-MM-GATEWAY-KEY" : "Ge6c853cf-5593-a196-efdb-e3fd7b881eca"]
@@ -104,7 +104,10 @@ extension MusicItem {
             case .success(let token):
                 let tokenValue = token.accessToken
                 print(tokenValue) //remove this row
-                let itemsRequest = musicItemsRequest(with: tokenValue, headers: requestHeaders)
+                let itemsRequest = musicItemsRequest(with: tokenValue,
+                                                     headers: requestHeaders,
+                                                     filter: filter)
+                
                 Network.shared.sendToRetreiveData(itemsRequest) { (result: Result<Data, Error>) in
                     switch result {
                     case .success(let data):
@@ -130,7 +133,7 @@ extension MusicItem {
         }
     }
     
-    static func musicItemsRequest(with token: String, headers: [String : String]) -> Request {
+    static func musicItemsRequest(with token: String, headers: [String : String], filter: String) -> Request {
         var requestHeaders = headers
         requestHeaders["Authorization"] = "Bearer \(token)"
         
@@ -140,7 +143,7 @@ extension MusicItem {
         components.path = NetworkConstants.resultsPath
         
         //query items
-        let query = URLQueryItem(name: "query", value: "john")
+        let query = URLQueryItem(name: "query", value: filter)
         let includeArtists = URLQueryItem(name: "includeArtists", value: "true")
         let limit = URLQueryItem(name: "limit", value: "20")
         let filterByStreamingOnly = URLQueryItem(name: "filterByStreamingOnly", value: "false")

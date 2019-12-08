@@ -21,6 +21,10 @@ class MusicItemsViewController: UIViewController {
         }
     }
     
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     var dataSource: TableDataSource<MusicItemTableViewCell, MusicItem>!
     
     //MARK: - View Lifecycle
@@ -28,9 +32,10 @@ class MusicItemsViewController: UIViewController {
         super.viewDidLoad()
         setupSearchController()
         setupTableView()
-        
-        MusicItem.itemsFromAPI(with: nil)
-        MusicItem.itemsFromAPI { [weak self] (items) in
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        MusicItem.itemsFromAPI(with: searchText.lowercased()) { [weak self] (items) in
             self?.items = items
             self?.updateTableView()
         }
