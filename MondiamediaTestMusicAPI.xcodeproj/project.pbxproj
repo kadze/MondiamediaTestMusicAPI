@@ -23,6 +23,8 @@
 		5EC5759C239C5C1900C4C511 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */; };
 		5EC5759E239C64E600C4C511 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC5759D239C64E600C4C511 /* HTTPMethod.swift */; };
 		5ECEA044239C6E7400C85C97 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEA043239C6E7400C85C97 /* TableDataSource.swift */; };
+		5ECEA069239C745100C85C97 /* MusicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEA068239C745100C85C97 /* MusicItem.swift */; };
+		5ECEA06C239C760400C85C97 /* MusicItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECEA06B239C760400C85C97 /* MusicItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		5EC5759B239C5C1900C4C511 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		5EC5759D239C64E600C4C511 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		5ECEA043239C6E7400C85C97 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		5ECEA068239C745100C85C97 /* MusicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItem.swift; sourceTree = "<group>"; };
+		5ECEA06B239C760400C85C97 /* MusicItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 		5EC5757F239C471600C4C511 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5ECEA068239C745100C85C97 /* MusicItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				5EC57583239C476100C4C511 /* MusicItemsViewController.swift */,
 				5EC57586239C480700C4C511 /* MusicItemsViewController.storyboard */,
 				5EC57591239C4E3800C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift */,
+				5ECEA06A239C75DF00C85C97 /* Cell */,
 			);
 			path = MusicItemsViewController;
 			sourceTree = "<group>";
@@ -175,6 +181,14 @@
 				5EC57572239C44A800C4C511 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5ECEA06A239C75DF00C85C97 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5ECEA06B239C760400C85C97 /* MusicItemTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +264,7 @@
 			files = (
 				5EC5756A239C44A800C4C511 /* AppDelegate.swift in Sources */,
 				5EC5758F239C494800C4C511 /* UIViewController+Storyboarded.swift in Sources */,
+				5ECEA069239C745100C85C97 /* MusicItem.swift in Sources */,
 				5EC5759C239C5C1900C4C511 /* NetworkConstants.swift in Sources */,
 				5EC57592239C4E3900C4C511 /* MusicItemsViewController+UISearchResultsUpdating.swift in Sources */,
 				5EC5758D239C493D00C4C511 /* Storyboarded.swift in Sources */,
@@ -261,6 +276,7 @@
 				5EC57598239C58E700C4C511 /* Request.swift in Sources */,
 				5ECEA044239C6E7400C85C97 /* TableDataSource.swift in Sources */,
 				5EC57596239C583C00C4C511 /* Model.swift in Sources */,
+				5ECEA06C239C760400C85C97 /* MusicItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
