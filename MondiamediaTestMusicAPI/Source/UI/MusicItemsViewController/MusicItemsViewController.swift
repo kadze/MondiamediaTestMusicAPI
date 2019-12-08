@@ -29,6 +29,7 @@ class MusicItemsViewController: UIViewController {
         setupSearchController()
         setupTableView()
         
+        MusicItem.itemsFromAPI(with: nil)
         items = [MusicItem(title: "1", artist: "11", type: .song, image: #imageLiteral(resourceName: "Logo")),
         MusicItem(title: "2", artist: "22", type: .album, image: #imageLiteral(resourceName: "Logo"))]
         updateTableView()

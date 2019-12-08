@@ -15,9 +15,14 @@ protocol Requestable {
 struct Request: Requestable {
     let path: String
     let method: HTTPMethod
-    init(path: String, method: HTTPMethod = .get) {
+    let headers: [String : String]
+    init(path: String,
+         method: HTTPMethod = .get,
+         headers: [String : String] = [String : String]())
+    {
         self.path = path
         self.method = method
+        self.headers = headers
     }
     
     func urlRequest() -> URLRequest {
@@ -27,6 +32,10 @@ struct Request: Requestable {
         
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
+        
+        headers.forEach { (key, value) in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
         
         return request
     }
