@@ -62,24 +62,8 @@ extension MusicItem {
             switch result {
               case .success(let token):
                 let tokenValue = token.accessToken
-                print(tokenValue)//!!here to continue
-                
-                requestHeaders["Authorization"] = "Bearer \(tokenValue)"
-                
-                var components = URLComponents()
-                components.scheme = NetworkConstants.scheme
-                components.host = NetworkConstants.host
-                components.path = NetworkConstants.resultsPath
-                
-                //query items
-                let query = URLQueryItem(name: "query", value: "john")
-                let includeArtists = URLQueryItem(name: "includeArtists", value: "true")
-                let limit = URLQueryItem(name: "limit", value: "20")
-                let filterByStreamingOnly = URLQueryItem(name: "filterByStreamingOnly", value: "false")
-                
-                components.queryItems = [query, includeArtists, limit, filterByStreamingOnly]
-                let itemsRequest = Request(urlComponents: components, method: .get, headers: requestHeaders)
-                
+                print(tokenValue) //remove this row
+                let itemsRequest = musicItemsRequest(with: tokenValue, headers: requestHeaders)
                 Network.shared.sendToRetreiveData(itemsRequest) { (result: Result<Data, Error>) in
                     switch result {
                     case .success(let data):
@@ -99,6 +83,26 @@ extension MusicItem {
                 print(error)
             }
         }
+    }
+    
+    static func musicItemsRequest(with token: String, headers: [String : String]) -> Request {
+        var requestHeaders = headers
+        requestHeaders["Authorization"] = "Bearer \(token)"
+        
+        var components = URLComponents()
+        components.scheme = NetworkConstants.scheme
+        components.host = NetworkConstants.host
+        components.path = NetworkConstants.resultsPath
+        
+        //query items
+        let query = URLQueryItem(name: "query", value: "john")
+        let includeArtists = URLQueryItem(name: "includeArtists", value: "true")
+        let limit = URLQueryItem(name: "limit", value: "20")
+        let filterByStreamingOnly = URLQueryItem(name: "filterByStreamingOnly", value: "false")
+        
+        components.queryItems = [query, includeArtists, limit, filterByStreamingOnly]
+        
+        return Request(urlComponents: components, method: .get, headers: requestHeaders)
     }
 }
 
