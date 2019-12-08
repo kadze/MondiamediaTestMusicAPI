@@ -171,7 +171,20 @@ extension MusicItem {
     }
     
     func loadLargeImage() {
-        
+        DispatchQueue.global().async { [weak self] in
+            if let urlString = self?.largeImageURLAddress,
+                let url = URL(string: "\(NetworkConstants.scheme):\(urlString)")
+            {
+                let data = try? Data(contentsOf: url)
+                if let imageData = data,
+                    let image = UIImage(data: imageData)
+                {
+                    DispatchQueue.main.async {
+                        self?.largeImage = image
+                    }
+                }
+            }
+        }
     }
 }
 

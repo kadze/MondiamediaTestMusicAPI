@@ -52,7 +52,7 @@ class MusicItemsViewController: UIViewController {
     }
     
     private func setupTableView() {
-        //no register sell because in storyboard
+        tableView.delegate = self
     }
     
     private func updateTableView() {
@@ -63,5 +63,13 @@ class MusicItemsViewController: UIViewController {
         tableView.dataSource = self.dataSource
         tableView.reloadData()
     }
+}
 
+extension MusicItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = items[indexPath.row]
+        let detailController = MusicItemViewController.instantiate()
+        detailController.model = model
+        navigationController?.pushViewController(detailController, animated: true)
+    }
 }
