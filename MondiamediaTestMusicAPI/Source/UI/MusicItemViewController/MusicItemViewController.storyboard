@@ -33,14 +33,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pBu-gC-HUx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FWv-24-LNV" secondAttribute="leading" id="4OE-Ik-WUj"/>
                             <constraint firstItem="Dpn-dQ-Trh" firstAttribute="centerX" secondItem="Ytd-R9-rUo" secondAttribute="centerX" id="9Ou-k6-S6a"/>
                             <constraint firstItem="Aba-HG-IYx" firstAttribute="leading" secondItem="FWv-24-LNV" secondAttribute="leading" id="CLR-uG-b0m"/>
                             <constraint firstItem="Aba-HG-IYx" firstAttribute="top" secondItem="FWv-24-LNV" secondAttribute="top" id="FrC-ni-0bh"/>
                             <constraint firstItem="pBu-gC-HUx" firstAttribute="centerX" secondItem="Ytd-R9-rUo" secondAttribute="centerX" id="POA-Ou-5ls"/>
+                            <constraint firstItem="FWv-24-LNV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pBu-gC-HUx" secondAttribute="trailing" id="Rgx-Vk-Joo"/>
                             <constraint firstItem="FWv-24-LNV" firstAttribute="trailing" secondItem="Aba-HG-IYx" secondAttribute="trailing" id="cgY-RO-N2j"/>
                             <constraint firstItem="pBu-gC-HUx" firstAttribute="top" secondItem="Aba-HG-IYx" secondAttribute="bottom" constant="8" symbolic="YES" id="gQu-82-xMs"/>
+                            <constraint firstItem="FWv-24-LNV" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dpn-dQ-Trh" secondAttribute="trailing" id="jI8-SI-ddb"/>
                             <constraint firstItem="Aba-HG-IYx" firstAttribute="height" secondItem="FWv-24-LNV" secondAttribute="height" multiplier="0.5" id="mLl-7Q-OBo"/>
                             <constraint firstItem="Dpn-dQ-Trh" firstAttribute="top" secondItem="pBu-gC-HUx" secondAttribute="bottom" constant="8" symbolic="YES" id="mOb-e4-AVF"/>
+                            <constraint firstItem="Dpn-dQ-Trh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FWv-24-LNV" secondAttribute="leading" id="sfN-J2-Mcw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FWv-24-LNV"/>
                     </view>
