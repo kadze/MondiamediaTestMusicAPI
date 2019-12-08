@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum MusicItemType: String {
+enum MusicItemType: String, Codable {
     case song
     case album
 }
@@ -26,13 +26,10 @@ extension MusicItem: Model {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let title = try container.decode(String.self, forKey: .title)
-        self.title = title
-        
+        self.title = try container.decode(String.self, forKey: .title)
+        self.type = try container.decode(MusicItemType.self, forKey: .type)
         artist = "default artist"
-        type = .song
         image = #imageLiteral(resourceName: "Logo")
-        
     }
     
     struct MainArtist {
@@ -43,7 +40,7 @@ extension MusicItem: Model {
     enum CodingKeys: String, CodingKey {
         case title
 //        case artist
-//        let type: MusicItemType
+        case type
 //        case mainArtist
     }
 }
@@ -53,14 +50,14 @@ extension MusicItem: Model {
 extension MusicItem {
     
     static func itemsFromAPI(with completion:((AccessToken) -> ())?) {
-        var requestHeaders = ["Content-Type" : "application/x-www-form-urlencoded",
-                                   "Accept" : "application/json",
-                                   "X-MM-GATEWAY-KEY" : "Ge6c853cf-5593-a196-efdb-e3fd7b881eca"]
+        let requestHeaders = ["Content-Type" : "application/x-www-form-urlencoded",
+                              "Accept" : "application/json",
+                              "X-MM-GATEWAY-KEY" : "Ge6c853cf-5593-a196-efdb-e3fd7b881eca"]
         
         let tokenRequest = Request(path: NetworkConstants.accessTokenPath, method: .post, headers: requestHeaders)
         Network.shared.send(tokenRequest) { (result: Result<AccessToken, Error>) in
             switch result {
-              case .success(let token):
+            case .success(let token):
                 let tokenValue = token.accessToken
                 print(tokenValue) //remove this row
                 let itemsRequest = musicItemsRequest(with: tokenValue, headers: requestHeaders)
@@ -79,7 +76,7 @@ extension MusicItem {
                     }
                 }
                 
-              case .failure(let error):
+            case .failure(let error):
                 print(error)
             }
         }
