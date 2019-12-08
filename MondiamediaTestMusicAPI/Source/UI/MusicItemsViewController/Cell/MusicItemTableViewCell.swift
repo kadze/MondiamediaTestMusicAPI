@@ -22,7 +22,7 @@ class MusicItemTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         typeLabel.isHidden = false
-        imageView?.image = nil
+        itemImageView?.image = nil
     }
     
     func fillWith(model: MusicItem?) {
@@ -31,19 +31,14 @@ class MusicItemTableViewCell: UITableViewCell {
 //        itemImageView.image = model?.image
         typeLabel.isHidden = model?.type == MusicItemType.song
         
-        DispatchQueue.global().async { [weak self] in
-            if let urlString = model?.tinyImageURLAddress,
-                let url = URL(string: "\(NetworkConstants.scheme):\(urlString)")
-            {
-                let data = try? Data(contentsOf: url)
-                if let imageData = data,
-                    let image = UIImage(data: imageData)
-                {
-                    DispatchQueue.main.async {
-                        self?.itemImageView.image = image
-                    }
-                }
+        if let image = model?.tinyImage {
+            itemImageView.image = image
+        } else {
+            model?.tinyImageSetHandler = {[ weak self ] image in
+                self?.itemImageView?.image = image
             }
+            
+            model?.loadTinyImage()
         }
     }
 

@@ -13,17 +13,39 @@ enum MusicItemType: String, Codable {
     case album
 }
 
-struct MusicItem {
+final class MusicItem {
     let title: String
     let artist: String
     let type: MusicItemType
     let tinyImageURLAddress: String
     let largeImageURLAddress: String
-}
-
-//MARK: - Codable
-
-extension MusicItem: Model {
+    
+    var tinyImage: UIImage? {
+        didSet {
+            if let handler = tinyImageSetHandler {
+                handler(tinyImage)
+            }
+        }
+    }
+    
+    var largeImage: UIImage? {
+        didSet {
+            if let handler = largeImageSetHandler {
+                handler(largeImage)
+            }
+        }
+    }
+    
+    var tinyImageSetHandler: ((UIImage?) -> ())?
+    var largeImageSetHandler: ((UIImage?) -> ())?
+    
+    init(title: String, type: MusicItemType, artist: String, tinyImageURLAddress: String, largeImageURLAddress: String) {
+        self.title = title
+        self.artist = artist
+        self.type = type
+        self.tinyImageURLAddress = tinyImageURLAddress
+        self.largeImageURLAddress = largeImageURLAddress
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -40,7 +62,11 @@ extension MusicItem: Model {
         largeImageURLAddress = large
         tinyImageURLAddress = tiny
     }
-    
+}
+
+//MARK: - Codable
+
+extension MusicItem: Model {
     enum CodingKeys: String, CodingKey {
         case title
         case artist = "mainArtist"
@@ -122,6 +148,27 @@ extension MusicItem {
         components.queryItems = [query, includeArtists, limit, filterByStreamingOnly]
         
         return Request(urlComponents: components, method: .get, headers: requestHeaders)
+    }
+    
+    func loadTinyImage() {
+        DispatchQueue.global().async { [weak self] in
+            if let urlString = self?.tinyImageURLAddress,
+                let url = URL(string: "\(NetworkConstants.scheme):\(urlString)")
+            {
+                let data = try? Data(contentsOf: url)
+                if let imageData = data,
+                    let image = UIImage(data: imageData)
+                {
+                    DispatchQueue.main.async {
+                        self?.tinyImage = image
+                    }
+                }
+            }
+        }
+    }
+    
+    func loadLargeImage() {
+        
     }
 }
 
