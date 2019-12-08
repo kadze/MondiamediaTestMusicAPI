@@ -25,6 +25,32 @@ class Network {
         }
     }
     
+    func sendToRetreiveData(_ request: Requestable, completion: @escaping (Result<Data, Error>) -> Void) {
+        queue.async {
+            let urlRequest = request.urlRequest()
+            
+            let task = self.session.dataTask(with: urlRequest) { data, response, error in
+                let result: Result<Data, Error>
+                
+                if let error = error {
+                    result = .failure(error)
+                } else if let error = self.error(from: response) {
+                    result = .failure(error)
+                } else if let data = data {
+                    result = .success(data)
+                } else {
+                    result = .failure(NetworkError.noDataOrError)
+                }
+                
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    
     func send<T: Model>(_ request: Requestable, completion: @escaping (Result<T, Error>) -> Void) {
         queue.async {
             let urlRequest = request.urlRequest()

@@ -16,6 +16,9 @@ struct Request: Requestable {
     let path: String
     let method: HTTPMethod
     let headers: [String : String]
+    let urlComponents: URLComponents?
+    
+    
     init(path: String,
          method: HTTPMethod = .get,
          headers: [String : String] = [String : String]())
@@ -23,19 +26,38 @@ struct Request: Requestable {
         self.path = path
         self.method = method
         self.headers = headers
+        self.urlComponents = nil
+    }
+    
+    init(urlComponents: URLComponents,
+         method: HTTPMethod = .get,
+         headers: [String : String] = [String : String]())
+    {
+        self.path = ""
+        self.method = method
+        self.headers = headers
+        self.urlComponents = urlComponents
     }
     
     func urlRequest() -> URLRequest {
-        guard let url = URL(string: NetworkConstants.baseURL) else {
-            return URLRequest(url: URL(fileURLWithPath: ""))
+        var url: URL
+        if let components = urlComponents, let urlFromComponents = components.url {
+            url = urlFromComponents
+        } else {
+            guard let baseURL = URL(string: NetworkConstants.baseURL) else {
+                return URLRequest(url: URL(fileURLWithPath: ""))
+            }
+            
+            url = baseURL.appendingPathComponent(path)
         }
         
-        var request = URLRequest(url: url.appendingPathComponent(path))
+        var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
         headers.forEach { (key, value) in
             request.setValue(value, forHTTPHeaderField: key)
         }
+        
         
         return request
     }
