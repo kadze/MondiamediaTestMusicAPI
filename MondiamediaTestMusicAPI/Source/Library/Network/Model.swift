@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol Model: Codable {}
+protocol Model: Decodable {}

@@ -27,7 +27,7 @@ class MusicItemTableViewCell: UITableViewCell {
     func fillWith(model: MusicItem?) {
         titleLabel.text = model?.title
         artistLabel.text = model?.artist
-        itemImageView.image = model?.image
+//        itemImageView.image = model?.image
         typeLabel.isHidden = model?.type == MusicItemType.song
     }
 

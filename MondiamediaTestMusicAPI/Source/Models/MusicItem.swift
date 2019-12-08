@@ -17,7 +17,10 @@ struct MusicItem {
     let title: String
     let artist: String
     let type: MusicItemType
-    let image: UIImage
+    let tinyImageURLAddress: String
+    let largeImageURLAddress: String
+//    let image: UIImage?
+//    let largeImage: UIImage?
 }
 
 //MARK: - Codable
@@ -32,17 +35,37 @@ extension MusicItem: Model {
         let artist = try container.nestedContainer(keyedBy: ArtistKeys.self, forKey: .artist)
         let artistName = try artist.decode(String.self, forKey: .name)
         self.artist = artistName
-        image = #imageLiteral(resourceName: "Logo")
+        
+        let cover = try container.nestedContainer(keyedBy: CoverKeys.self, forKey: .cover)
+        let large = try cover.decode(String.self, forKey: .largeImageURLAddress)
+        let tiny = try cover.decode(String.self, forKey: .tinyImageURLAddress)
+        largeImageURLAddress = large
+        tinyImageURLAddress = tiny
+//        let tinyImageURL = try cover.decode(String.self, forKey: .tiny)
+//        let largeImageURL = try cover.decode(String.self, forKey: .large)
+//        image = #imageLiteral(resourceName: "Logo")
+//        largeImage = #imageLiteral(resourceName: "Logo")
     }
     
     enum CodingKeys: String, CodingKey {
         case title
         case artist = "mainArtist"
         case type
+        case cover
     }
     
     enum ArtistKeys: String, CodingKey {
         case name
+    }
+    
+    enum CoverKeys: String, CodingKey {
+        case tinyImageURLAddress = "tiny"
+        case largeImageURLAddress = "large"
+    }
+    
+    struct Cover: Codable {
+        let tiny: String
+        let large: String
     }
 }
 
